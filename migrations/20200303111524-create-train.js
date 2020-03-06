@@ -1,35 +1,45 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable("trains", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-      },roles:{
-        type: Sequelize.ENUM('admin','user')
       },
-      name: {
+      nameTrain: {
         type: Sequelize.STRING
       },
-      username: {
+      type_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "types",
+          key: "id"
+        },
+        onUpdate: "cascade",
+        onDelete: "cascade"
+      },
+      dateStart: {
         type: Sequelize.STRING
       },
-      email: {
+      stationStart: {
         type: Sequelize.STRING
       },
-      password: {
+      timeStart: {
         type: Sequelize.STRING
       },
-      gender: {
-        type: Sequelize.ENUM('male','female')
-      },
-      phone: {
+      destinationStation: {
         type: Sequelize.STRING
       },
-      address: {
+      timeArrival: {
         type: Sequelize.STRING
+      },
+      price: {
+        type: Sequelize.INTEGER
+      },
+      qty: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -42,6 +52,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable("trains");
   }
 };

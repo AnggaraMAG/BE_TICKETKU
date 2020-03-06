@@ -1,0 +1,50 @@
+// const jwt = require("jsonwebtoken");
+const models = require("../models");
+const Ticket = models.train;
+
+exports.Aticket = async (req, res) => {
+  try {
+    const {
+      nameTrain,
+      type_id,
+      dateStart,
+      stationStart,
+      timeStart,
+      destinationStation,
+      timeArrival,
+      price,
+      qty
+    } = req.body;
+    const ticket = await Ticket.create({
+      nameTrain,
+      type_id,
+      dateStart,
+      stationStart,
+      timeStart,
+      destinationStation,
+      timeArrival,
+      price,
+      qty
+    });
+    res.status(201).send({
+      status: true,
+      message: "Succes add new ticket",
+      data: ticket
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.Gticket = async (req, res) => {
+  try {
+    const tickets = await Ticket.findAll();
+    res.status(200).send({
+      status: true,
+      message: "success get all",
+      data: tickets
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
