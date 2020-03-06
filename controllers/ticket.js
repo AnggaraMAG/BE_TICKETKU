@@ -1,6 +1,7 @@
 // const jwt = require("jsonwebtoken");
 const models = require("../models");
 const Ticket = models.train;
+const Type = models.type;
 
 exports.Aticket = async (req, res) => {
   try {
@@ -38,7 +39,9 @@ exports.Aticket = async (req, res) => {
 
 exports.Gticket = async (req, res) => {
   try {
-    const tickets = await Ticket.findAll();
+    const tickets = await Ticket.findAll({
+      include: [Type]
+    });
     res.status(200).send({
       status: true,
       message: "success get all",

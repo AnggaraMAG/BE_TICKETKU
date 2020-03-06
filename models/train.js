@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   train.associate = function(models) {
-    // associations can be defined here
+    train.belongsTo(models.type, {
+      foreignKey: "type_id"
+    });
   };
   return train;
 };
