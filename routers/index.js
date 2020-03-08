@@ -5,7 +5,8 @@ const { auth } = require("../middleware/jwt");
 const { Register, Login } = require("../controllers/auth");
 const { Aticket, Gticket } = require("../controllers/ticket");
 const { Ouser } = require("../controllers/user");
-const {Gtype} = require ("../controllers/type");
+const { Gtype } = require("../controllers/type");
+const { Gorders } = require("../controllers/order");
 
 router.get("/", (req, res) => {
   res.send("<h1>hello world</h1>");
@@ -20,6 +21,9 @@ router.post("/ticket", Aticket);
 router.get("/tickets", Gticket);
 //users
 router.get("/user", auth, Ouser);
+
+//order
+router.get("/orders", Gorders);
 
 //type
 router.get("/type", Gtype);

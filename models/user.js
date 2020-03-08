@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define(
     "user",
     {
-      username:DataTypes.STRING,
+      username: DataTypes.STRING,
       name: DataTypes.STRING,
       roles: DataTypes.ENUM("admin", "user"),
       email: DataTypes.STRING,
@@ -15,10 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   user.associate = function(models) {
-    user.belongsToMany(models.train, {
-      through: models.order,
-      foreignKey: "user_id"
-    });
+    //
   };
   return user;
 };
