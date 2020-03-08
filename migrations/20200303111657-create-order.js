@@ -27,6 +27,15 @@ module.exports = {
       qty: {
         type: Sequelize.INTEGER
       },
+      qtybaby: {
+        type: Sequelize.INTEGER
+      },
+      adultprice: {
+        type: Sequelize.STRING
+      },
+      babyprice: {
+        type: Sequelize.STRING
+      },
       totalprice: {
         type: Sequelize.INTEGER
       },

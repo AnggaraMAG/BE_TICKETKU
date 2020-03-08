@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
       timeStart: DataTypes.STRING,
       destinationStation: DataTypes.STRING,
       timeArrival: DataTypes.STRING,
+      station1: DataTypes.STRING,
+      station2: DataTypes.STRING,
       price: DataTypes.INTEGER,
       qty: DataTypes.INTEGER
     },

@@ -35,6 +35,12 @@ module.exports = {
       timeArrival: {
         type: Sequelize.STRING
       },
+      station1: {
+        type: Sequelize.STRING
+      },
+      station2: {
+        type: Sequelize.STRING
+      },
       price: {
         type: Sequelize.INTEGER
       },

@@ -12,7 +12,10 @@ exports.Myticket = async (req, res) => {
   try {
     const myticket = await Order.findAll({
       where: { user_id: user.user_id },
-      include: [User, Train]
+      include: [
+        User,
+        { model: Train, include: [{ model: Type, attributes: ["name"] }] }
+      ]
     });
     res.status(200).send({
       message: "succes get order",

@@ -13,6 +13,8 @@ exports.Aticket = async (req, res) => {
       timeStart,
       destinationStation,
       timeArrival,
+      station1,
+      station2,
       price,
       qty
     } = req.body;
@@ -24,6 +26,8 @@ exports.Aticket = async (req, res) => {
       timeStart,
       destinationStation,
       timeArrival,
+      station1,
+      station2,
       price,
       qty
     });

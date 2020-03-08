@@ -6,6 +6,9 @@ module.exports = (sequelize, DataTypes) => {
       ticket_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
       qty: DataTypes.INTEGER,
+      qtybaby: DataTypes.INTEGER,
+      adultprice: DataTypes.STRING,
+      babyprice: DataTypes.STRING,
       totalprice: DataTypes.INTEGER,
       status: DataTypes.STRING,
       attachment: DataTypes.STRING
