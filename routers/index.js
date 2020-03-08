@@ -7,6 +7,7 @@ const { Aticket, Gticket } = require("../controllers/ticket");
 const { Ouser } = require("../controllers/user");
 const { Gtype } = require("../controllers/type");
 const { Gorders } = require("../controllers/order");
+const { Myticket } = require("../controllers/payment");
 
 router.get("/", (req, res) => {
   res.send("<h1>hello world</h1>");
@@ -27,5 +28,8 @@ router.get("/orders", Gorders);
 
 //type
 router.get("/type", Gtype);
+
+//payment
+router.get("/myticket", auth, Myticket);
 
 module.exports = router;
