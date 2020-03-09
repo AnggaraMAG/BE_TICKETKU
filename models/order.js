@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       adultprice: DataTypes.STRING,
       babyprice: DataTypes.STRING,
       totalprice: DataTypes.INTEGER,
-      status: DataTypes.STRING,
+      status: DataTypes.ENUM("Pending", "Approved", "Cancel"),
       attachment: DataTypes.STRING
     },
     {}

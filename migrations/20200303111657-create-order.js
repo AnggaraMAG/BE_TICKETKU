@@ -40,7 +40,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       status: {
-        type: Sequelize.ENUM("pending", "approved", "cancel")
+        type: Sequelize.ENUM("Pending", "Approved", "Cancel")
       },
       attachment: {
         type: Sequelize.STRING
