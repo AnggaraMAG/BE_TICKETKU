@@ -51,3 +51,40 @@ exports.Dorder = async (req, res) => {
     console.log(error);
   }
 };
+
+exports.paymentproof = async (req, res) => {
+  try {
+    const { filename } = req.file;
+    const { id } = req.params;
+    if (!filename) {
+      res.status(400).json({
+        status: "failed",
+        message: "Please Upload File"
+      });
+    } else {
+      await Order.update(
+        {
+          attachment: filename
+        },
+        { where: { id } }
+      );
+      res.status(200).json({
+        status: "success",
+        message: "file upload successfully",
+        data: filename
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.Corder = async (req,res) => {
+  try {
+    const orders = await Order.findAll({
+      include: [User, Ticket]
+    });
+  } catch (error) {
+    console.log(error)
+  }
+}
