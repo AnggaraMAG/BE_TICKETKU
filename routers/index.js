@@ -12,7 +12,8 @@ const {
   Porder,
   Dorder,
   paymentproof,
-  Corder
+  Corder,
+  Tticket
 } = require("../controllers/order");
 const { Myticket } = require("../controllers/payment");
 
@@ -28,6 +29,7 @@ router.post("/login", Login);
 //ticket
 router.post("/ticket", Aticket);
 router.get("/tickets", Gticket);
+// router.get("tickets/search", Searchticket);
 //users
 router.get("/user", auth, Ouser);
 router.get("/user/:id", Guser);
@@ -37,7 +39,8 @@ router.get("/orders", Gorders);
 router.put("/order/:id", Porder);
 router.delete("/order/:id", Dorder);
 router.post("/upload/:id", upload.single("payment"), paymentproof);
-router.post("/order", auth, Corder);
+
+router.post("/order", auth, Tticket);
 
 //type
 router.get("/type", Gtype);

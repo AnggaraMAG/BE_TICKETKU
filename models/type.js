@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   type.associate = function(models) {
+    
   };
   return type;
 };

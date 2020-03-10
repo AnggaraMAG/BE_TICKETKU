@@ -79,12 +79,40 @@ exports.paymentproof = async (req, res) => {
   }
 };
 
-exports.Corder = async (req,res) => {
+exports.Corder = async (req, res) => {
   try {
     const orders = await Order.findAll({
       include: [User, Ticket]
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
+
+exports.Tticket = async (req, res) => {
+  const {
+    ticket_id,
+    user_id,
+    qty,
+    qtybaby,
+    adultprice,
+    babyprice,
+    totalprice
+  } = req.body;
+  const status = "Pending";
+  try {
+    const x = await Order.create({
+      ticket_id,
+      user_id,
+      qty,
+      qtybaby,
+      adultprice,
+      babyprice,
+      totalprice,
+      status
+    });
+    res.send({ data: x });
+  } catch (error) {
+    console.log(error);
+  }
+};

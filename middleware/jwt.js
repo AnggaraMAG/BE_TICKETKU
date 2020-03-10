@@ -6,13 +6,14 @@ exports.auth = async (req, res, next) => {
   try {
     // console.log('hi');
     const token = req.header("Authorization").replace("Bearer ", "");
-    console.log(token);
+    // console.log(req);
     const data = jwt.verify(token, process.env.SECRET_KEY);
+    console.log(data);
     const user = await User.findOne({ where: { id: data.user_id } });
     if (!user) {
       throw new Error();
     }
-    req.user = data.user_id;
+    req.user = user.id;
 
     req.token = token;
     next();
