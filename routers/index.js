@@ -16,6 +16,7 @@ const {
   Tticket
 } = require("../controllers/order");
 const { Myticket } = require("../controllers/payment");
+const { Search } = require("../controllers/search");
 
 router.get("/", (req, res) => {
   res.send("<h1>hello world</h1>");
@@ -47,5 +48,8 @@ router.get("/type", Gtype);
 
 //payment
 router.get("/myticket", auth, Myticket);
+
+//searching
+router.get("/searching", Search);
 
 module.exports = router;
